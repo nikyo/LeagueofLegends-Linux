@@ -52,14 +52,14 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
 		sudo apt-get autoremove wine 
 		sudo apt-get purge 
 		sudo apt-get autoclean 
-		sudo rm -r ~/.wine"
+		rm -r ~/.wine"
 
 
 if prompt "  Would you like to remove Wine from your system?"; then
 	sudo apt-get autoremove wine 
 	sudo apt-get purge 
 	sudo apt-get autoclean 
-	sudo rm -r ~/.wine
+	rm -r ~/.wine
 	NBETAPE="3"
 	clear
 	echo "
@@ -71,6 +71,38 @@ else
 You don't want to remove previous wine installation.
 "
 	NBETAPE="3"
+fi
+
+#----------------------------------------------------------------------------------------------------------
+
+echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]----------------------------
+
+  FORCE WINE ARCHITECTURE TO 32BITS
+  -----------------------
+  Wine 32bits is more stable than 64bits
+  This script will now execute the command:
+
+		sudo dpkg --print-foreign-architectures 
+		sudo dpkg --add-architecture i386 
+		sudo apt-get update"
+
+
+if prompt "  Would you like to force Wine architecture to 32bits?"; then
+	 
+	sudo dpkg --print-foreign-architectures 
+	sudo dpkg --add-architecture i386 
+	sudo apt-get update
+	NBETAPE="4" 
+	clear
+	echo "
+Wine exportation to 32bits complete successfully
+" 
+else
+	clear
+	echo "
+You don't want to export wine architecture to 32bits.
+"
+	NBETAPE="4"
 fi
 
 #----------------------------------------------------------------------------------------------------------
@@ -95,7 +127,7 @@ if prompt "  Would you like to install Wine on your system?"; then
 	sudo apt-get install wine 
 	export WINEARCH="win32" 
 	winecfg
-	NBETAPE="4" 
+	NBETAPE="5" 
 	clear
 	echo "
 Wine installation complete successfully
@@ -105,7 +137,7 @@ else
 	echo "
 You don't want to install wine.
 "
-	NBETAPE="4"
+	NBETAPE="5"
 fi
 
 #----------------------------------------------------------------------------------------------------------
@@ -132,7 +164,7 @@ if prompt "  Would you like to install requirements for LoL on your system?"; th
 	winetricks d3dx9
 	winetricks corefonts
 	winetricks adobeair 
-	NBETAPE="5"
+	NBETAPE="6"
 	clear
 	echo "
 Requirements installation complete successfully
@@ -142,7 +174,7 @@ else
 	echo "
 You don't want to install requirements for LoL...
 "
-	NBETAPE="5"
+	NBETAPE="6"
 fi
 
 #----------------------------------------------------------------------------------------------------------
@@ -169,7 +201,7 @@ if prompt "  Would you like to install the Patch?"; then
 	sudo chmod +x lol_linux.py 
 	sudo python ./lol_linux.py texture_patch
 	cd .. 
-	NBETAPE="6"
+	NBETAPE="7"
 	clear
 	echo "
 Patch installation complete successfully
@@ -179,7 +211,7 @@ else
 	echo "
 You don't want to install the Patch...
 "
-	NBETAPE="6"
+	NBETAPE="7"
 fi
 
 #----------------------------------------------------------------------------------------------------------
@@ -196,7 +228,7 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
 
 if prompt "  Would you like to install a LoL Launcher in your home directory?"; then
 	cp "lol_launcher.sh" /home/$USER/
-	NBETAPE="7"
+	NBETAPE="8"
 	clear
 	echo "
 Launcher creation complete successfully
@@ -206,5 +238,5 @@ else
 	echo "
 You don't want to create a launcher for LoL...
 "
-	NBETAPE="7"
+	NBETAPE="8"
 fi
