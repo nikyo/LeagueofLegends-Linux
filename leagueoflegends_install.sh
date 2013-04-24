@@ -195,6 +195,7 @@ You don't want to install requirements for LoL...
 "
 fi
 NBETAPE="6"
+sleep(2000)
 #----------------------------------------------------------------------------------------------------------
 echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]----------------------------
 	COPY INSTALL FOLDERS
@@ -260,11 +261,16 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
   We need to create a lol launcher to make it easier to launch.
   This script will now execute the command:
 
-		cp lol_launcher.sh /home/$USER/"
+		mkdir /home/$USER/LoL
+		sudo chmod +x lol_launcher.sh
+		cp "lol_launcher.sh" /home/$USER/LoL
+		clear"
 
 
 if prompt "  Would you like to install a LoL Launcher in your home directory?"; then
-	cp "lol_launcher.sh" /home/$USER/
+	mkdir /home/$USER/LoL
+	sudo chmod +x lol_launcher.sh
+	cp "lol_launcher.sh" /home/$USER/LoL
 	clear
 	echo "
 Launcher creation complete successfully
@@ -281,5 +287,5 @@ NBETAPE="9"
 clear
 echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]----------------------------
 
-  Installation terminée :) Bon jeu !"
+  INSTALLATION COMPLETED !!! GOOD GAME !!!
   
