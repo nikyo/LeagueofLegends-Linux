@@ -65,7 +65,7 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
 		rm -rf ~/.local/share/Trash/info/wine*
 		rm -rf ~/.local/share/Trash/files/wine*
 		rm -rf ~/.local/share/desktop-directories/wine*
-		rm -rf ~/.Trash
+		rm -rf ~/.Trash"
 
 
 if prompt "  Would you like to remove Wine from your system?"; then
