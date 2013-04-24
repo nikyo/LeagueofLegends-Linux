@@ -250,12 +250,13 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
   -----------------------
   We need to create a lol launcher to make it easier to launch.
   This script will now execute the command:
-
+		mkdir /home/$USER/LoL
 		cp lol_launcher.sh /home/$USER/"
 
 
 if prompt "  Would you like to install a LoL Launcher in your home directory?"; then
-	cp "lol_launcher.sh" /home/$USER/
+	mkdir /home/$USER/LoL
+	cp "lol_launcher.sh" /home/$USER/LoL
 	NBETAPE="8"
 	clear
 	echo "
