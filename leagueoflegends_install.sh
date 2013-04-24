@@ -3,7 +3,7 @@
 # ------------------------
 
 NBETAPE="1"
-NBTOTETAPE="8"
+NBTOTETAPE="9"
 LANGUE="en"
 
 if [ -f "prompt" ]; then
@@ -22,11 +22,13 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
   Before we can continue, we need to make sure your system's software sources
   are up-to-date. This script will now execute the command:
 
-		sudo apt-get update"
+		sudo apt-get update
+		sudo apt-get upgrade"
 
 
 if prompt "  Would you like to update your software sources?"; then
 	sudo apt-get update
+	sudo apt-get upgrade
 	clear
 	echo "
 Update complete successfully
@@ -82,8 +84,9 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
 		sudo dpkg --add-architecture i386 
 		sudo apt-get update"
 
-var=$(sudo dpkg --print-foreign-architectures)
-if [$var = 'i386'] 
+VAR1=$(dpkg --print-foreign-architectures)
+VAR2="i386"
+if [[ $VAR1 == $VAR2 ]]; then
 	if prompt "  Would you like to force Wine architecture to 32bits? If you choose 'No' option League of Legend will not work"; then 
 		sudo dpkg --add-architecture i386 
 		sudo apt-get update
@@ -143,19 +146,19 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
 
 		winetricks vcrun2005 (Visual C++)
 		winetricks ie8 (Internet Explorer 8)
-		winetricks wininet (Wininet)
 		winetricks d3dx9 (DirectX 9)
 		winetricks corefonts (CoreFonts)
-		winetricks adobeair (Adobe Air)"
+		winetricks adobeair (Adobe Air)
+		winetricks wininet (Wininet)"
 
 
 if prompt "  Would you like to install requirements for LoL on your system?"; then
 	winetricks vcrun2005
 	winetricks ie8
-	winetricks wininet
 	winetricks d3dx9
 	winetricks corefonts
 	winetricks adobeair 
+	winetricks wininet
 	clear
 	echo "
 Requirements installation complete successfully
@@ -174,16 +177,15 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
 	Copy your install folder to ~/.wine/dosdevices/c:/Program Files/Riot Games/League of Legends/
 "
 
-valide = 0
+VALIDE="0"
 
-while valide == 0 ; do
+while [[ $VALIDE == "0" ]] ; do
 	if prompt " Have you copy the installation's folder ?"; then 
-		if [! -d "/home/$USER/.wine/dosdevices/c:/Program Files/Riot Games"] ; then
+		if [ ! -d "/home/$USER/.wine/dosdevices/c:/Program Files/Riot Games" ] ; then
 			echo "Installation's folder don't exist, please copy it"
-			valide = 0
+			VALIDE="0"
 		else
-			valide = 1
-		
+			VALIDE="1"
 		fi
 	fi
 done
@@ -246,6 +248,12 @@ else
 	clear
 	echo "
 You don't want to create a launcher for LoL...
-"
-	
+"	
 fi
+NBETAPE="9"
+#----------------------------------------------------------------------------------------------------------
+
+clear
+echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]----------------------------
+
+  Installation terminée :) Bon jeu !"
