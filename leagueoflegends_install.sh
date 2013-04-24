@@ -52,14 +52,40 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
 		sudo apt-get autoremove wine 
 		sudo apt-get purge 
 		sudo apt-get autoclean 
-		rm -r ~/.wine"
+		rm -rf ~/.wine
+		rm -rf ~/.cache/winetricks
+		rm -rf ~/.config/menus/applications-merged/wine*
+		sudo rm -rf /usr/share/app-install/desktop/wine*
+		sudo rm -rf /usr/share/bash-completion/completions/wine
+		sudo rm -rf /usr/share/app-install/icons/wine*
+		sudo rm -rf /home/.Trash-0/info/wine*
+		sudo rm -rf /home/.Trash-0/files/.wine
+		sudo rm -rf /home/.Trash-0/files/winetricks
+		rm -rf ~/.local/share/applications/wine*
+		rm -rf ~/.local/share/Trash/info/wine*
+		rm -rf ~/.local/share/Trash/files/wine*
+		rm -rf ~/.local/share/desktop-directories/wine*
+		rm -rf ~/.Trash
 
 
 if prompt "  Would you like to remove Wine from your system?"; then
 	sudo apt-get autoremove wine 
 	sudo apt-get purge 
 	sudo apt-get autoclean 
-	rm -r ~/.wine
+	rm -rf ~/.wine
+	rm -rf ~/.cache/winetricks
+	rm -rf ~/.config/menus/applications-merged/wine*
+	sudo rm -rf /usr/share/app-install/desktop/wine*
+	sudo rm -rf /usr/share/bash-completion/completions/wine
+	sudo rm -rf /usr/share/app-install/icons/wine*
+	sudo rm -rf /home/.Trash-0/info/wine*
+	sudo rm -rf /home/.Trash-0/files/.wine
+	sudo rm -rf /home/.Trash-0/files/winetricks
+	rm -rf ~/.local/share/applications/wine*
+	rm -rf ~/.local/share/Trash/info/wine*
+	rm -rf ~/.local/share/Trash/files/wine*
+	rm -rf ~/.local/share/desktop-directories/wine*
+	rm -rf ~/.Trash
 	clear
 	echo "
 Wine removed successfully
