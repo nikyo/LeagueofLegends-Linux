@@ -22,11 +22,13 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
   Before we can continue, we need to make sure your system's software sources
   are up-to-date. This script will now execute the command:
 
-		sudo apt-get update"
+		sudo apt-get update
+		sudo apt-get upgrade"
 
 
 if prompt "  Would you like to update your software sources?"; then
 	sudo apt-get update
+	sudo apt-get upgrade
 	NBETAPE="2"
 	clear
 	echo "
@@ -49,10 +51,10 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
   Before installing Wine, we need to remove previous versions.
   This script will now execute the command:
 
-		sudo apt-get autoremove wine 
-		sudo apt-get purge 
-		sudo apt-get autoclean 
-		rm -rf ~/.wine
+	sudo apt-get autoremove wine 
+	sudo apt-get purge 
+	sudo apt-get autoclean 
+	rm -rf ~/.wine
 	rm -rf ~/.cache/winetricks
 	rm -rf ~/.config/menus/applications-merged/wine*
 	sudo rm -rf /usr/share/app-install/desktop/wine*
@@ -178,19 +180,19 @@ echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]------------
 
 		winetricks vcrun2005 (Visual C++)
 		winetricks ie8 (Internet Explorer 8)
-		winetricks wininet (Wininet)
+		winetricks adobeair (Adobe Air)
 		winetricks d3dx9 (DirectX 9)
 		winetricks corefonts (CoreFonts)
-		winetricks adobeair (Adobe Air)"
+		winetricks wininet (Wininet)"
 
 
 if prompt "  Would you like to install requirements for LoL on your system?"; then
 	winetricks vcrun2005
 	winetricks ie8
-	winetricks wininet
+	winetricks adobeair
 	winetricks d3dx9
 	winetricks corefonts
-	winetricks adobeair 
+	winetricks wininet 
 	NBETAPE="6"
 	clear
 	echo "
