@@ -286,5 +286,5 @@ NBETAPE="9"
 clear
 echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]----------------------------
 
-  INSTALLATION COMPLETED !!! GOOD GAME !!!
+  INSTALLATION COMPLETED !!! GOOD GAME !!!"
   
