@@ -195,7 +195,6 @@ You don't want to install requirements for LoL...
 "
 fi
 NBETAPE="6"
-wait(2000)
 #----------------------------------------------------------------------------------------------------------
 echo "  -----------------------------[ STEP $NBETAPE / $NBTOTETAPE ]----------------------------
 	COPY INSTALL FOLDERS
